@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Time Wheel Stats</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{
+margin:0;
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,#1f1c2c,#928dab);
+color:white;
+padding:20px;
+}
+.container{
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 30px rgba(0,0,0,0.4);
+animation:fade 1s ease;
+}
+h1{
+margin-bottom:20px;
+font-weight:600;
+}
+p{
+line-height:1.7;
+margin-bottom:15px;
+}
+button{
+margin-top:20px;
+padding:12px;
+width:100%;
+border:none;
+border-radius:10px;
+background:#00f5ff;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+button:hover{
+transform:scale(1.03);
+}
+a{
+color:#00f5ff;
+text-decoration:none;
+}
+@keyframes fade{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+@media(max-width:480px){
+.container{padding:20px;}
+}
+</style>
+<script>
+function closeWebView(){
+if(window.Android && typeof window.Android.closeWebView === "function"){
+window.Android.closeWebView();
+}
+if(window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.closeWebView){
+window.webkit.messageHandlers.closeWebView.postMessage(null);
+}
+}
+</script>
+</head>
+<body>
+
+<div class="container">
+<h1>Privacy Policy</h1>
+
+<p>This Privacy Policy applies to the application <strong>Time Wheel Stats</strong> developed by <strong>Virexa Apps</strong>.</p>
+
+<p>We do not collect any personal data.</p>
+<p>We do not store any user information.</p>
+<p>We do not share any information with third parties.</p>
+<p>We do not use tracking systems, analytics, or advertising identifiers.</p>
+
+<p>The application works fully without collecting, processing, or transmitting user data.</p>
+
+<p>If you have any questions, you may contact us at:
+<a href="mailto:orgestdedjaf3@gmail.com">orgestdedjaf3@gmail.com</a></p>
+
+<button onclick="closeWebView()">Close Policy</button>
+
+<p style="margin-top:20px;">
+<a href="index.html">Back to Developer Page</a>
+</p>
+
+</div>
+
+</body>
+</html>
