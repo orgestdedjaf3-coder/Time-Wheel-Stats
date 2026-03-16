@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Virexa Apps | Time Wheel Stats</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg1:#0f2027;
+--bg2:#203a43;
+--accent:#00f5ff;
+--glass:rgba(255,255,255,0.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:'Inter',sans-serif;
+background:linear-gradient(135deg,var(--bg1),var(--bg2));
+color:white;
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:20px;
+}
+.card{
+background:var(--glass);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:30px;
+max-width:500px;
+width:100%;
+box-shadow:0 0 40px rgba(0,255,255,0.15);
+animation:fadeIn 1s ease;
+}
+h1{
+font-family:'Orbitron',sans-serif;
+font-size:24px;
+margin-bottom:10px;
+color:var(--accent);
+}
+h2{
+font-weight:400;
+font-size:16px;
+margin-bottom:20px;
+opacity:0.8;
+}
+p{margin-bottom:15px;line-height:1.6;}
+.buttons{
+display:flex;
+flex-direction:column;
+gap:12px;
+margin-top:20px;
+}
+a.button{
+text-decoration:none;
+background:linear-gradient(90deg,#00f5ff,#00c3ff);
+padding:12px;
+border-radius:10px;
+text-align:center;
+color:black;
+font-weight:600;
+transition:0.3s;
+}
+a.button:hover{
+transform:scale(1.05);
+box-shadow:0 0 15px var(--accent);
+}
+.footer{
+margin-top:30px;
+font-size:12px;
+opacity:0.6;
+text-align:center;
+}
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px);}
+to{opacity:1;transform:translateY(0);}
+}
+@media(max-width:480px){
+h1{font-size:20px;}
+.card{padding:20px;}
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+<h1>Virexa Apps</h1>
+<h2>Developer of Time Wheel Stats</h2>
+
+<p><strong>App Name:</strong> Time Wheel Stats</p>
+<p><strong>Developer:</strong> Virexa Apps</p>
+<p><strong>Contact:</strong> orgestdedjaf3@gmail.com</p>
+
+<p>
+We are focused on building simple, meaningful and evolving digital tools.
+Our mission is to provide value through clarity, design and functionality.
+</p>
+
+<div class="buttons">
+<a href="privacy.html" class="button">Privacy Policy</a>
+<a href="marketing.html" class="button">Marketing Information</a>
+<a href="mailto:orgestdedjaf3@gmail.com" class="button">Support</a>
+</div>
+
+<div class="footer">
+© 2026 Virexa Apps. All rights reserved.
+</div>
+</div>
+
+</body>
+</html>
