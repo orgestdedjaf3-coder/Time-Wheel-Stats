@@ -62,10 +62,12 @@ a{color:inherit;text-decoration:none}
 }
 .brand-text{min-width:0}
 .brand-title{
+  display:block;
   font-weight:800; font-size:1.15rem; letter-spacing:.2px;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 .brand-sub{
+  display:block;
   color:var(--muted); font-size:.88rem;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
@@ -256,12 +258,30 @@ h1{
   .nav{
     align-items:flex-start;
     flex-direction:column;
-    gap:14px;
-    padding:14px 0 16px;
+    gap:12px;
+    padding:12px 0 14px;
   }
-  .brand{width:100%}
-  .brand-title{font-size:1.05rem}
-  .brand-sub{font-size:.82rem}
+  .brand{
+    width:100%;
+    gap:12px;
+  }
+  .logo{width:38px;height:38px;border-radius:12px}
+  .logo-inner{border-radius:9px}
+  .brand-title{
+    font-size:1.02rem;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
+    line-height:1.1;
+  }
+  .brand-sub{
+    font-size:.82rem;
+    white-space:normal;
+    overflow:visible;
+    text-overflow:unset;
+    line-height:1.2;
+    margin-top:2px;
+  }
   .nav-links{
     width:100%;
     display:grid;
@@ -273,21 +293,68 @@ h1{
     padding:12px 10px;
     min-width:0;
   }
-  .hero{padding:22px 0 10px; gap:16px}
-  .hero-card,.card,.mega{padding:18px}
-  .hero-visual{padding:16px}
-  h1{
-    font-size:clamp(1.8rem, 8.4vw, 2.5rem);
-    line-height:1.08;
+
+  .hero{
+    grid-template-columns:1fr;
+    padding:18px 0 8px;
+    gap:14px;
   }
-  .lead{font-size:.98rem; line-height:1.62}
-  .cta-row{display:grid; grid-template-columns:1fr; gap:10px}
+  .hero-card{
+    padding:18px;
+  }
+  .hero-visual{
+    display:none;
+  }
+  h1{
+    font-size:clamp(1.55rem, 7vw, 2.1rem);
+    line-height:1.1;
+    margin:12px 0 10px;
+  }
+  .lead{
+    font-size:.96rem;
+    line-height:1.58;
+  }
+  .cta-row{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:10px;
+    margin-top:18px;
+  }
   .button{width:100%}
-  .grid{gap:14px}
-  .card,.mega{grid-column:span 12}
-  .kv{grid-template-columns:1fr; gap:6px}
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:12px;
+    padding-bottom:20px;
+  }
+  .card,.mega{
+    grid-column:auto;
+    padding:18px;
+    min-width:0;
+  }
+  .mega{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  .kv{
+    grid-template-columns:1fr;
+    gap:6px;
+  }
+  .timeline{
+    gap:10px;
+  }
+  .step{
+    padding:14px 16px;
+  }
   .pill-row{gap:8px}
-  .pill{font-size:.92rem}
+  .pill{font-size:.9rem}
+  .footer{
+    padding:0 14px 26px;
+    font-size:.92rem;
+    line-height:1.55;
+    word-break:break-word;
+  }
 }
 </style>
 </head>
@@ -363,7 +430,7 @@ h1{
     </div>
   </article>
 
-  <article class="card" style="grid-column:span 6">
+  <article class="card">
     <h3>Developer details</h3>
     <div class="kv">
       <div>Developer</div><div>Virexa Apps</div>
@@ -373,7 +440,7 @@ h1{
     </div>
   </article>
 
-  <article class="card" style="grid-column:span 6">
+  <article class="card">
     <h3>Navigation</h3>
     <div class="timeline">
       <div class="step"><strong>Privacy Policy:</strong> explains the app’s non-collection approach.</div>
