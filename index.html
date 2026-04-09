@@ -248,6 +248,18 @@ h1{
   font-size:.95rem;
 }
 
+
+  .kv div{
+    min-width:0;
+    overflow-wrap:anywhere;
+  }
+  .step{
+    overflow:hidden;
+  }
+  .step strong{
+    overflow-wrap:anywhere;
+  }
+
 @media (max-width: 900px){
   .hero{grid-template-columns:1fr}
   .card{grid-column:span 6}
@@ -354,6 +366,7 @@ h1{
     font-size:.92rem;
     line-height:1.55;
     word-break:break-word;
+    overflow-wrap:anywhere;
   }
 }
 </style>
@@ -430,7 +443,7 @@ h1{
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" style="grid-column:span 6">
     <h3>Developer details</h3>
     <div class="kv">
       <div>Developer</div><div>Virexa Apps</div>
@@ -440,7 +453,7 @@ h1{
     </div>
   </article>
 
-  <article class="card">
+  <article class="card" style="grid-column:span 6">
     <h3>Navigation</h3>
     <div class="timeline">
       <div class="step"><strong>Privacy Policy:</strong> explains the app’s non-collection approach.</div>
