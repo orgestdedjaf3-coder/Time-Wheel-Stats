@@ -1,92 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About the Project | Time Wheel Stats</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-body{
-margin:0;
-font-family:'Inter',sans-serif;
-background:radial-gradient(circle at top,#141e30,#243b55);
-color:white;
-padding:20px;
-overflow-x:hidden;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="description" content="Marketing — official page for Time Wheel Stats by Virexa Apps." />
+  <title>Marketing — Time Wheel Stats</title>
+  <style>
+:root{
+  --bg:#07111f;
+  --bg2:#0b1b31;
+  --card:rgba(255,255,255,.08);
+  --stroke:rgba(255,255,255,.14);
+  --text:#eaf2ff;
+  --muted:#adc4ef;
+  --accent:#7cffe1;
+  --accent2:#7aa8ff;
+  --glow:0 0 40px rgba(122,168,255,.22), 0 0 80px rgba(124,255,225,.12);
+  --radius:24px;
+  --max:1100px;
 }
-.container{
-max-width:750px;
-margin:auto;
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:20px;
-backdrop-filter:blur(15px);
-box-shadow:0 0 50px rgba(0,255,255,0.1);
-animation:slide 1s ease;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124,255,225,.14), transparent 30%),
+    radial-gradient(circle at 80% 15%, rgba(122,168,255,.18), transparent 28%),
+    radial-gradient(circle at 50% 80%, rgba(96,68,255,.14), transparent 32%),
+    linear-gradient(180deg, #07111f 0%, #081726 48%, #06101a 100%);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.shell{max-width:var(--max); margin:0 auto; padding:20px}
+.topbar{
+  position:sticky; top:0; z-index:10;
+  backdrop-filter:blur(14px);
+  background:rgba(6,16,26,.55);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
+}
+.brand{
+  display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.4px;
+}
+.brand-badge{
+  width:42px; height:42px; border-radius:14px; position:relative;
+  background:conic-gradient(from 180deg, #7aa8ff, #7cffe1, #9a7cff, #7aa8ff);
+  box-shadow:var(--glow);
+}
+.brand-badge::after{
+  content:""; position:absolute; inset:6px; border-radius:10px; background:#07111f;
+}
+.nav-links{
+  display:flex; gap:10px; flex-wrap:wrap;
+}
+.nav-links a{
+  padding:10px 14px; border-radius:999px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  color:var(--muted);
+  transition:.25s ease;
+}
+.nav-links a:hover,.nav-links a.active{
+  color:var(--text);
+  transform:translateY(-1px);
+  background:rgba(124,255,225,.1);
+  border-color:rgba(124,255,225,.28);
+}
+.hero{
+  padding:54px 0 28px;
+  display:grid; grid-template-columns:1.15fr .85fr; gap:24px; align-items:center;
+}
+.hero-card, .glass{
+  background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--glow);
+}
+.hero-card{padding:28px; position:relative; overflow:hidden}
+.hero-card::before{
+  content:""; position:absolute; width:220px; height:220px; right:-60px; top:-60px;
+  background:radial-gradient(circle, rgba(124,255,225,.25), transparent 60%);
+}
+.label{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:.82rem; color:var(--accent);
+  padding:8px 12px; border:1px solid rgba(124,255,225,.24);
+  border-radius:999px; background:rgba(124,255,225,.06);
 }
 h1{
-font-family:'Orbitron',sans-serif;
-color:#00f5ff;
-margin-bottom:20px;
+  font-size:clamp(2rem, 7vw, 4rem);
+  line-height:1.02; margin:16px 0 14px;
 }
-p{
-line-height:1.8;
-margin-bottom:15px;
+p.lead{
+  color:var(--muted); font-size:1.02rem; line-height:1.7; max-width:62ch;
 }
-.highlight{
-color:#00f5ff;
-font-weight:600;
+.cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
+.button{
+  padding:13px 18px; border-radius:16px; font-weight:700; letter-spacing:.2px;
+  border:1px solid rgba(255,255,255,.1); transition:.25s ease;
 }
-a{
-color:#00f5ff;
-text-decoration:none;
+.button.primary{
+  background:linear-gradient(135deg, rgba(124,255,225,.18), rgba(122,168,255,.22));
 }
-@keyframes slide{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
+.button.secondary{
+  background:rgba(255,255,255,.05);
+  color:var(--muted);
 }
-@media(max-width:480px){
-.container{padding:20px;}
+.button:hover{transform:translateY(-2px); box-shadow:var(--glow)}
+.wheel{
+  aspect-ratio:1/1; width:min(100%, 420px); margin-inline:auto; border-radius:50%;
+  position:relative; border:1px solid rgba(255,255,255,.15);
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,.16) 0 2px, transparent 2px),
+    repeating-radial-gradient(circle at center, rgba(255,255,255,.08) 0 2px, transparent 2px 42px),
+    conic-gradient(from 0deg, rgba(124,255,225,.35), rgba(122,168,255,.24), rgba(154,124,255,.28), rgba(124,255,225,.35));
+  box-shadow:var(--glow), inset 0 0 80px rgba(255,255,255,.08);
+  animation:spin 22s linear infinite;
+}
+.wheel::before,.wheel::after{
+  content:\"\"; position:absolute; inset:14%; border-radius:50%;
+  border:1px solid rgba(255,255,255,.12);
+}
+.wheel::after{
+  inset:42% 12%; height:2px; top:50%; transform:translateY(-50%);
+  border:none; border-radius:999px;
+  background:linear-gradient(90deg, rgba(124,255,225,.1), rgba(255,255,255,.95), rgba(122,168,255,.1));
+  box-shadow:0 0 24px rgba(255,255,255,.55);
+}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px; margin:20px 0 30px}
+.card{
+  grid-column:span 4;
+  padding:22px; border-radius:22px;
+  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.045));
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:var(--glow);
+}
+.card h3{margin:0 0 10px; font-size:1.08rem}
+.card p,.card li,.copy{color:var(--muted); line-height:1.7}
+.mega{
+  grid-column:span 12;
+  padding:26px;
+  display:grid; grid-template-columns:1fr 1fr; gap:18px;
+}
+.list{
+  margin:0; padding-left:18px;
+}
+.section-title{margin:6px 0 14px; font-size:1.45rem}
+.footer{
+  padding:24px 0 34px; color:var(--muted); font-size:.95rem;
+}
+.small{
+  font-size:.95rem; color:var(--muted);
+}
+.kv{
+  display:grid; grid-template-columns:170px 1fr; gap:10px 14px; margin-top:16px;
+}
+.kv div:nth-child(odd){color:#cfe0ff; font-weight:700}
+.timeline{
+  display:grid; gap:14px;
+}
+.step{
+  padding:16px 18px; border-radius:18px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
+}
+.notice{
+  padding:18px 20px; border-radius:20px;
+  background:linear-gradient(135deg, rgba(124,255,225,.1), rgba(122,168,255,.08));
+  border:1px solid rgba(124,255,225,.18);
+}
+.pill-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+.pill{
+  padding:9px 12px; border-radius:999px;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); color:var(--muted);
+}
+.contact-card{
+  display:grid; gap:14px;
+}
+.copy-btn{
+  border:none; cursor:pointer; color:var(--text);
+  background:linear-gradient(135deg, rgba(124,255,225,.2), rgba(122,168,255,.18));
+  padding:12px 16px; border-radius:14px; font-weight:700;
+}
+input.copy-field{
+  width:100%; background:rgba(0,0,0,.22); color:var(--text);
+  border:1px solid rgba(255,255,255,.12); padding:14px 16px; border-radius:14px;
+}
+@media (max-width: 900px){
+  .hero{grid-template-columns:1fr; padding-top:34px}
+  .card{grid-column:span 6}
+  .mega{grid-template-columns:1fr}
+}
+@media (max-width: 640px){
+  .shell{padding:16px}
+  .card,.mega{grid-column:span 12}
+  .nav{justify-content:center}
+  .brand{width:100%; justify-content:center}
+  .nav-links{justify-content:center}
+  .hero-card{padding:22px}
+  .kv{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
+  
+<header class="topbar">
+  <div class="shell nav">
+    <a class="brand" href="index.html" aria-label="Go to home page">
+      <span class="brand-badge"></span>
+      <span>Time Wheel Stats</span>
+    </a>
+    <nav class="nav-links" aria-label="Site navigation">
+      <a href="index.html" class="">Home</a>
+      <a href="privacy.html" class="">Privacy Policy</a>
+      <a href="support.html" class="">Support</a>
+      <a href="marketing.html" class="active">Marketing</a>
+    </nav>
+  </div>
+</header>
 
-<div class="container">
-<h1>About Time Wheel Stats</h1>
+  <main class="shell">
+    <section class="hero">
+      <div class="hero-card">
+        <span class="label">Project vision and positioning</span>
+        <h1>About the developer and the future of the app</h1>
+        <p class="lead">This page openly explains the current stage of the project. The application is being built by a beginner developer who is focused on improving quality, learning through real product work, and creating useful value for users over time.</p>
+        <div class="cta-row">
+          <a class="button primary" href="support.html">Contact Developer</a>
+          <a class="button secondary" href="privacy.html">Read Privacy Policy</a>
+        </div>
+      </div>
+      <div class="glass" style="padding:20px">
+        <div class="wheel" aria-hidden="true"></div>
+      </div>
+    </section>
+    
+<section class="grid">
+  <article class="mega glass">
+    <div>
+      <h2 class="section-title">Current stage</h2>
+      <p class="copy">Virexa Apps is a beginner developer project. A great deal of effort is being invested into learning, improving the user experience, and building a more useful product step by step. The goal is not only to publish an app, but to make it meaningfully better over time.</p>
+    </div>
+    <div>
+      <h2 class="section-title">Monetization status</h2>
+      <p class="copy">At the moment, <strong>Time Wheel Stats</strong> does not include paid features, subscriptions, or paid access. In the future, monetization options may be introduced in a fair and transparent way so the project can generate income and support continued development.</p>
+    </div>
+  </article>
 
-<p>
-<span class="highlight">Virexa Apps</span> is an independent beginner developer working passionately on improving digital experiences.
-</p>
+  <article class="card" style="grid-column:span 4">
+    <h3>What matters today</h3>
+    <p>Right now the focus is on stability, clarity, usability, and honest presentation of the project.</p>
+  </article>
 
-<p>
-Time Wheel Stats was created with dedication and strong attention to detail.
-The goal is to provide real value through design, simplicity and useful functionality.
-</p>
+  <article class="card" style="grid-column:span 4">
+    <h3>Long-term direction</h3>
+    <p>The intention is to keep improving the app and add more value through thoughtful updates and stronger functionality.</p>
+  </article>
 
-<p>
-Currently, the application does not include paid features or subscriptions.
-</p>
+  <article class="card" style="grid-column:span 4">
+    <h3>Open communication</h3>
+    <p>This page exists to make the developer’s intentions visible to users and reviewers without hidden claims or unclear promises.</p>
+  </article>
 
-<p>
-In the future, premium features and subscriptions may be introduced in order to support continued development and generate sustainable income.
-</p>
+  <article class="mega glass">
+    <div>
+      <h2 class="section-title">Value statement</h2>
+      <div class="timeline">
+        <div class="step"><strong>Continuous effort:</strong> the developer is actively trying to improve the app with each stage of development.</div>
+        <div class="step"><strong>User value:</strong> the goal is to create practical value, not just publish a listing.</div>
+        <div class="step"><strong>Transparent future plans:</strong> paid features or subscriptions may be added later to support the project financially.</div>
+      </div>
+    </div>
+    <div>
+      <h2 class="section-title">Public identity</h2>
+      <p class="copy">Developer name: <strong>Virexa Apps</strong><br/>Application: <strong>Time Wheel Stats</strong><br/>Official contact: <strong>orgestdedjaf3@gmail.com</strong></p>
+      <div class="pill-row">
+        <span class="pill">Beginner developer</span>
+        <span class="pill">No paid features yet</span>
+        <span class="pill">Future growth planned</span>
+        <span class="pill">Focused on value</span>
+      </div>
+    </div>
+  </article>
+</section>
 
-<p>
-The focus remains on building trust, transparency and long-term value for users.
-</p>
-
-<p>
-If you would like to support development or provide feedback, feel free to contact:
-<a href="mailto:orgestdedjaf3@gmail.com">orgestdedjaf3@gmail.com</a>
-</p>
-
-<p style="margin-top:20px;">
-<a href="index.html">Back to Developer Page</a> |
-<a href="privacy.html">Privacy Policy</a>
-</p>
-
-</div>
+  </main>
+  <footer class="shell footer">
+    <div>Developer: <strong>Virexa Apps</strong> · App: <strong>Time Wheel Stats</strong> · Contact: orgestdedjaf3@gmail.com</div>
+  </footer>
+  
+<script>
+function copyEmail(){
+  const field = document.getElementById('devEmail');
+  if(!field) return;
+  field.select();
+  field.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(field.value).then(() => {
+    const btn = document.getElementById('copyBtn');
+    if(btn){
+      const old = btn.textContent;
+      btn.textContent = 'Copied';
+      setTimeout(() => btn.textContent = old, 1400);
+    }
+  });
+}
+document.addEventListener('mousemove', (e) => {
+  const x = (e.clientX / window.innerWidth) * 100;
+  const y = (e.clientY / window.innerHeight) * 100;
+  document.body.style.background = `
+    radial-gradient(circle at ${x}% ${y}%, rgba(124,255,225,.12), transparent 20%),
+    radial-gradient(circle at 80% 15%, rgba(122,168,255,.18), transparent 28%),
+    radial-gradient(circle at 50% 80%, rgba(96,68,255,.14), transparent 32%),
+    linear-gradient(180deg, #07111f 0%, #081726 48%, #06101a 100%)
+  `;
+}, {passive:true});
+</script>
 
 </body>
 </html>
